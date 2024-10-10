@@ -36,6 +36,6 @@ app.get('/Roulette', (req, res) => {
     res.sendFile(path.join(__dirname, 'Pages', '/Game3-Roulette.html'))
 })
 
-app.listen(porta, ()=>{console.log('servidor rodando')})
+app.listen(porta, ()=>{console.log(`servidor rodando na porta: ${porta}`)})
 
 
