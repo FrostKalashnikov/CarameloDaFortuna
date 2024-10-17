@@ -1,57 +1,70 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Black Jack - Caramelo da Fortuna</title>
-        <link rel="stylesheet" href="Styles/blackjack.css">
-        <script src="Scripts/Blackjack.js"></script>
-    </head>
 
-    <body>
-        <header> <!-- BARRA DE CABEÇALHO-->
-            <div class="container-logo">        <!-- CONTAINER LOGO -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Jack - Caramelo da Fortuna</title>
+    <link rel="stylesheet" href="Styles/blackjack.css">
+    <script src="Scripts/Blackjack.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-bar">
+            <div class="container-logo">
                 <div class="logo-imagem">
                     <img class="logo-imagem" src="Images/CarameloIcon.png">
                 </div>
                 <div class="logo-texto">
                     <h2>Caramelo da Fortuna</h2>
                 </div>
-            </div>                              <!-- CONTAINER LOGO -->
-            
-            <div class="menu">                  <!-- MENU -->
+            </div>
+
+            <div class="nav-list">
                 <ul>
-                    <li><a href="Home.html"> Home</a> </li>
-                    <li><a href="BlackJack.html"> Black jack</a> </li>
-                    <li><a href="Game2-SlotMachine.html"> Jack Pot</a> </li>
-                    <li><a href="Game3-Roulette.html"> Roulette</a> </li>
+                    <li class="nav-item"><a href="BlackJack.html" class="nav-link">BlackJack</a></li>
+                    <li class="nav-item"><a href="Game2-SlotMachine.html" class="nav-link">JackPot</a></li>
+                    <li class="nav-item"><a href="Game3-Roulette.html" class="nav-link">Roulette</a></li>
                 </ul>
-            </div>                              <!-- MENU -->
-        </header>
-        <div id="saldo"> Saldo 100 </div>
+            </div>
 
-        <h2>Dealer: <span id="dealer-sum"></span></h2>
-        <div id="dealer-cards">
-            <img id="hidden" src="Images/cards/BACK.png">
-        </div>
+            <div class="login-button">
+                <button><a href="#">Entrar</a></button>
+                <button><a href="#">Cadastrar</a></button>
+            </div>
+            <div class="conta-saldo">
+                <img src="Images/coins.png" class="coins">
+                <span id="saldo">100</span>
+                <img src="Images/character.png" class="user">
+            </div>
+        </nav>
+    </header>
 
-        <h2>Você: <span id="your-sum"></span></h2>
-        <div id="your-cards"></div>
+    <br>
+    <h2>Dealer: <span id="dealer-sum"></span></h2>
+    <div id="dealer-cards">
+        <img id="hidden" src="Images/cards/BACK.png">
+    </div>
 
+    <h2>Você: <span id="your-sum"></span></h2>
+    <div id="your-cards"></div>
+
+    <br>
+    <button id="hit">Pedir</button>
+    <button id="stay">Manter</button>
+    <button id="Next">Próximo</button>
+    <p id="results"></p>
+
+    <br>
+    <div>
+        <span> Valor em jogo: </span>
+        <span> 100</span>
         <br>
-        <button id="hit">Pedir</button>
-        <button id="stay">Manter</button>
-        <button id="Next">Próximo</button>
-        <p id="results"></p>
+        <span> Apostar:</span>
+        <input type="text">
+        <button id="Bet">Apostar</button>
+    </div>
+</body>
 
-        <br>
-        <div>
-            <span> Valor em jogo: </span>
-            <span> 100</span>
-            <br>
-            <span> Apostar:</span>
-            <input type="text">
-            <button id="Bet">Apostar</button>
-        </div>
-    </body>
 </html>

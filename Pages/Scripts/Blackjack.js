@@ -68,7 +68,7 @@ function startGame() {
     console.log(yourSum);
     document.getElementById("hit").addEventListener("click", hit);
     document.getElementById("stay").addEventListener("click", stay);
-
+    document.getElementById("Next").addEventListener("click", NextRound)
 }
 
 function hit() {
@@ -117,6 +117,10 @@ function stay() {
     document.getElementById("dealer-sum").innerText = dealerSum;
     document.getElementById("your-sum").innerText = yourSum;
     document.getElementById("results").innerText = message;
+}
+
+function NextRound(){
+    window.location.href = "blackjack.html"
 }
 
 function getValue(card) {
