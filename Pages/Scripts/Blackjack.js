@@ -10,6 +10,8 @@ let deck;
 
 let canHit = true; //allows the player (you) to draw while yourSum <= 21
 
+let amountBet = 10;
+
 window.onload = function() {
     buildDeck();
     shuffleDeck();
@@ -68,11 +70,12 @@ function startGame() {
     console.log(yourSum);
     document.getElementById("hit").addEventListener("click", hit);
     document.getElementById("stay").addEventListener("click", stay);
-    document.getElementById("Next").addEventListener("click", NextRound)
+    document.getElementById("Next").addEventListener("click", NextRound);
+    document.getElementById("Bet").addEventListener("click", definirAposta)
 }
 
 function hit() {
-    if (!canHit) {
+    if (!canHit || !saldoSuficiente(amountBet)) {
         return;
     }
 
@@ -90,6 +93,10 @@ function hit() {
 }
 
 function stay() {
+    if(!saldoSuficiente(amountBet)){
+        return;
+    }
+
     dealerSum = reduceAce(dealerSum, dealerAceCount);
     yourSum = reduceAce(yourSum, yourAceCount);
 
@@ -98,20 +105,24 @@ function stay() {
 
     let message = "";
     if (yourSum > 21) {
-        message = "You Lose!";
+        message = "Você Perdeu!";
+        subtrairSaldo(amountBet)
     }
     else if (dealerSum > 21) {
-        message = "You win!";
+        message = "Você Ganhou!";
+        adicionarSaldo(amountBet)
     }
     //both you and dealer <= 21
     else if (yourSum == dealerSum) {
-        message = "Tie!";
+        message = "Empate!";
     }
     else if (yourSum > dealerSum) {
-        message = "You Win!";
+        message = "Você Ganhou!";
+        adicionarSaldo(amountBet)
     }
     else if (yourSum < dealerSum) {
-        message = "You Lose!";
+        message = "Você Perdeu!";
+        subtrairSaldo(amountBet)
     }
 
     document.getElementById("dealer-sum").innerText = dealerSum;
@@ -120,7 +131,33 @@ function stay() {
 }
 
 function NextRound(){
+    if(!saldoSuficiente(amountBet)){
+        return;
+    }
     window.location.href = "blackjack.html"
+}
+
+function definirAposta() {
+    // Pega o valor inserido pelo usuário na caixa de aposta
+    let valorAposta = parseInt(document.getElementById("betValue").value);
+
+    // Verifica se o valor inserido é um número válido
+    if (!isNaN(valorAposta) && valorAposta > 0) {
+        // Verifica se o usuário tem saldo suficiente para essa aposta
+        if (saldoSuficiente(valorAposta)) {
+            // Define amountBet com o valor inserido
+            amountBet = valorAposta;
+
+            console.log("Aposta realizada:", amountBet);
+            document.getElementById("betText").innerText = amountBet;
+
+            // Aqui, você pode continuar o jogo com amountBet definido
+        } else {
+            alert("Saldo insuficiente para essa aposta.");
+        }
+    } else {
+        alert("Por favor, insira um valor de aposta válido.");
+    }
 }
 
 function getValue(card) {
