@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Asap", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    background-color: #080d1c;
+}
+
+.container {
+    width: 520px;
+    background-color: transparent;
+    border: 2px solid #007aff;
+    border-radius: 10px;
+    color: #fff;
+    padding: 30px 40px;
+    box-shadow:0 0 10px #007aff(0, 0, 0, .2);
+    backdrop-filter: blur(50px);
+}
+
+.container img {
+    width: 70px;
+}
+
+.container h1 {
+    font-size: 30px;
+    position: absolute;
+    top: 30px;
+    padding: 20px 80px 30px ;
+}
+
+.container h2 {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form-content {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin: 40px 0;
+}
+
+.form-content input {
+    width: 100%;
+    height: 100%;
+    background-color: #1C284A;
+    border: 2px solid #007aff;
+    border-radius: 40px;
+    outline: none;
+    font-size: 18px;
+    color: #fff;
+    margin-top: 10px;
+    padding: 20px 45px 20px 20px;
+}
+
+.form-content i {
+    position: absolute;
+    right: 10px;
+    top: 90%;
+    transform: translateX(-10%);
+    font-size: 20px;
+}
+
+.form-content input::placeholder {
+    color: #e4e1e1;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input{
+    accent-color: #fff;
+    margin-right: 5px;
+    margin-top: 10px;
+}
+
+.remember-forgot a {
+    text-decoration: none;
+    color: #007aff;
+    margin-top: 10px;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.Entrar {
+    width: 100%;
+    height: 40px;
+    background-color: #1C284A;
+    border: 2px solid #007aff;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    margin-top: 25px;
+}
+
+.Entrar:hover {
+    background-color: transparent;
+    border: 1px solid #007aff;
+    color: #fff;
+    transition: 0.5s;
+}
+
+.register-link {
+    font-size: 16px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.register-link a {
+    text-decoration: none;
+    color: #007aff;
+    font-weight: 400;
+}
+.register-link a:hover {
+    text-decoration: underline;
+}
