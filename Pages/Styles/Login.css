@@ -1,4 +1,4 @@
-* {
+** {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -24,7 +24,7 @@ body {
     backdrop-filter: blur(50px);
 }
 
-.container img {
+.container images {
     width: 70px;
 }
 
