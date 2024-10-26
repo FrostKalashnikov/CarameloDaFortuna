@@ -24,7 +24,7 @@ body {
     backdrop-filter: blur(50px);
 }
 
-.container images {
+.container img {
     width: 70px;
 }
 
