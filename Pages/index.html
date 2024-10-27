@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jackpot</title>
+
+    <!-- Header CSS -->
+    <link rel="stylesheet" href="Styles/Header.css">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="Styles/style.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav class="nav-bar">
+            <div class="container-logo">
+                <div class="logo-imagem">
+                    <img class="logo-imagem" src="Images/CarameloIcon.png" alt="Logo">
+                </div>
+                <div class="logo-texto">
+                    <h2>Caramelo da Fortuna</h2>
+                </div>
+            </div>
+
+            <div class="nav-list">
+                <ul>
+                    <li class="nav-item"><a href="BlackJack.html" class="nav-link">BlackJack</a></li>
+                    <li class="nav-item"><a href="Game2-SlotMachine.html" class="nav-link">JackPot</a></li>
+                    <li class="nav-item"><a href="Game3-Roulette.html" class="nav-link">Roulette</a></li>
+                </ul>
+            </div>
+
+            <div class="login-button">
+                <button><a href="#">Entrar</a></button>
+                <button><a href="#">Cadastrar</a></button>
+            </div>
+            
+            <div class="div-conta">
+                <div class="user-coins">
+                    <div class="div-username">
+                        <span id="Username">-----</span>
+                    </div>
+                    <div class="coins">
+                        <img src="Images/coins.png" class="coins" alt="Coins">
+                        <span id="saldo">0</span>
+                    </div>
+                </div>
+                <img src="Images/character.png" class="user-icon" alt="User Icon">
+            </div>
+        </nav>
+    </header>
+
+    <!-- Slot Machine Section -->
+    <div class="slot">
+        <div id="slot-screen">
+            <ul class="reels">
+                <li class="reel"><img src="Images/Jackpot/1.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/4.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/4.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/9.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/5.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/9.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/7.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/8.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/9.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/10.png" alt=""></li>
+            </ul>
+
+            <ul class="reels">
+                <li class="reel"><img src="Images/Jackpot/1.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/10.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/9.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/6.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/10.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/6.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/9.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/4.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/9.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/10.png" alt=""></li>
+            </ul>
+
+            <ul class="reels">
+                <li class="reel"><img src="Images/Jackpot/1.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/9.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/8.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/9.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/9.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/4.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/9.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/5.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/9.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/10.png" alt=""></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Control Buttons -->
+    <button type="button" class="stop-btn" data-val="0" disabled="true">Stop Reel 1</button>
+    <button type="button" class="stop-btn" data-val="1" disabled="true">Stop Reel 2</button>
+    <button type="button" class="stop-btn" data-val="2" disabled="true">Stop Reel 3</button>
+
+    <div>
+        <button id="start-btn">Start!</button>
+    </div>
+
+    <!-- jQuery and Script Files -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="Scripts/Scrip.js"></script>
+
+    <script>
+        // Include the slot machine logic and win notification here
+        let stopReelFlag = [false, false, false];
+        let reelCounts = [0, 0, 0];
+        const sec = 100;
+        let slot = {
+            init: function() {
+                stopReelFlag = [false, false, false];
+                reelCounts = [0, 0, 0];
+            },
+
+            start: function() {
+                this.init();
+                start_btn.disabled = true;
+                for (let i = 0; i < 3; i++) {
+                    this.animation(i);
+                    stop_btn[i].disabled = false;
+                }
+            },
+
+            stop: function(i) {
+                stopReelFlag[i] = true;
+                stop_btn[i].disabled = true;
+
+                if (stopReelFlag.every(flag => flag === true)) {
+                    start_btn.disabled = false;
+                    if (this.checkWin()) alert("Congratulations! You won!");
+                }
+            },
+
+            animation: function(index) {
+                if (reelCounts[index] >= 8) reelCounts[index] = 0;
+                
+                const reel = reels[index];
+                reel.style.transition = `top ${sec}ms linear`;
+                reel.style.top = `${slotReelStartHeight + (reelCounts[index] * slotReelItemHeight)}px`;
+
+                setTimeout(() => {
+                    if (!stopReelFlag[index]) {
+                        reelCounts[index]++;
+                        this.animation(index);
+                    }
+                }, sec);
+            },
+
+            checkWin: function() {
+                let reelImages = reels.map((reel, i) => {
+                    return reel.getElementsByTagName("img")[reelCounts[i] % 10].src;
+                });
+                return reelImages.every((img, _, arr) => img === arr[0]);
+            }
+        };
+        document.getElementById("start-btn").onclick = () => slot.start();
+        document.querySelectorAll(".stop-btn").forEach((btn, i) =>
+            btn.onclick = () => slot.stop(i)
+        );
+    </script>
+</body>
+</html>
