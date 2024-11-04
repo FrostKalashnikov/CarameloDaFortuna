@@ -1,0 +1,15 @@
+*{
+    font-family: sans-serif;
+}
+
+body{
+    background-color:  #080D1C;
+}
+
+h1,h2,h3,h4{
+    color: #FFF;
+}
+
+.logo{
+    max-width: 100px;
+}
