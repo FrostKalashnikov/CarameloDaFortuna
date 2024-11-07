@@ -1,3 +1,13 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "asap", sans-serif;
+}
+body {
+    text-align: center;
+    background-color:  #080D1C;
+    color: #FFF;
+}
 header{
     background-color: #131f41;
 }
@@ -34,7 +44,9 @@ header{
     color: #FFF;
 }
 
-.login-button{ display: none;}
+.login-button{ 
+    display: none;
+}
 .login-button button{
     border: none;
     background-color: cornflowerblue;

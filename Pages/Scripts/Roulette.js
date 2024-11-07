@@ -1,4 +1,4 @@
-(function() {
+window.onload = function() {
     const wheel = document.querySelector(".wheel");
     const startButton = document.querySelector(".button");
 
@@ -24,4 +24,4 @@
             document.getElementById("result").innerText = `Resultado: ${result}`;
         }, 10000);
     });
-})();
+}
