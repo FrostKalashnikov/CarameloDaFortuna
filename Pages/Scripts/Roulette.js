@@ -3,6 +3,7 @@ window.onload = function() {
     const startButton = document.querySelector(".button");
 
     let deg = 0;
+    const totalSections = 37; // Número de seções da roleta
 
     startButton.addEventListener("click", () => {
         const audio = new Audio('sound.mp3');
@@ -10,6 +11,7 @@ window.onload = function() {
 
         startButton.style.pointerEvents = "none";
 
+        // Gera um valor aleatório de rotação (entre 5000 e 10000 graus)
         deg = Math.floor(5000 + Math.random() * 5000);
         wheel.style.transition = "transform 10s ease";
         wheel.style.transform = `rotate(${deg}deg)`;
@@ -18,10 +20,16 @@ window.onload = function() {
         setTimeout(() => {
             startButton.style.pointerEvents = "auto";
             wheel.classList.remove("blur");
-            
+
+            // Aqui, calculamos o ângulo final
             const finalDeg = deg % 360;
-            const result = Math.floor(finalDeg / (360 / 37));
-            document.getElementById("result").innerText = `Resultado: ${result}`;
+            
+            // Divida o ângulo final pela quantidade de seções (37), 
+            // e arredonde para pegar o número correspondente à seção.
+            const resultIndex = Math.floor(finalDeg / (360 / totalSections));
+
+            // Exibe o resultado
+            document.getElementById("result").innerText = `Resultado: ${resultIndex}`;
         }, 10000);
     });
 }
