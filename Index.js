@@ -25,15 +25,15 @@ app.get('/cadastro', (req, res) => {
 })
 
 app.get('/blackjack', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Pages', '/Game1-BlackJack.html'))
+    res.sendFile(path.join(__dirname, 'Pages', '/BlackJack.html'))
 })
 
-app.get('/Jackpot', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Pages', '/Game2-SlotMachine.html'))
+app.get('/jackpot', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Pages', '/Jackpot.html'))
 })
 
-app.get('/Roulette', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Pages', '/Game3-Roulette.html'))
+app.get('/roulette', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Pages', '/Roulette.html'))
 })
 
 app.listen(porta, ()=>{console.log(`servidor rodando na porta: ${porta}`)})

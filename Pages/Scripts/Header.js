@@ -5,7 +5,7 @@ fetch("Header.html")
     .then(data => {
         document.getElementById("header-placeholder").innerHTML = data;
 
-        carregarUsuarioLogado()
+        verificarUsuarioLogado()
     })
     .catch(error => console.log('Erro ao carregar o header:', error));
 
@@ -29,6 +29,9 @@ function cadastrarUsuario(email, username, senha, saldo) {
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
     console.log("Usuário cadastrado com sucesso!");
+    fazerLogin(email, senha);
+    window.location.href = "home.html";
+
 }
 
 function fazerLogin(email, senha) {
@@ -36,7 +39,7 @@ function fazerLogin(email, senha) {
     let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
     // Procurar o usuário correspondente pelo email e senha
-    let usuarioLogado = usuarios.find(user => user.email === email && user.senha === senha);
+    let usuarioLogado = usuarios.find(user => user.email.toLowerCase() === email && user.senha === senha);
 
     if (usuarioLogado) {
         // Se o login for bem-sucedido, salvar o usuário logado na sessionStorage
@@ -44,9 +47,10 @@ function fazerLogin(email, senha) {
 
         console.log("Login bem-sucedido!");
         // Redirecionar para outra página ou continuar o fluxo de login
-        window.location.href = "Blackjack.html";
+        window.location.href = "home.html";
     } else {
         console.log("Email ou senha incorretos!");
+        alert("Email ou senha incorretos!")
     }
 }
 
@@ -60,7 +64,7 @@ function carregarUsuarioLogado() {
         document.getElementById("saldo").innerText = usuarioLogado.saldo;
     } else {
         // Se não houver usuário logado, redirecionar para a página de login
-        //window.location.href = "login.html";
+        window.location.href = "login.html";
     }
 }
 
@@ -145,5 +149,37 @@ function saldoSuficiente(valorAposta) {
     } else {
         console.log("Nenhum usuário logado.");
         return false;
+    }
+}
+
+// Função para verificar se o usuário está logado e ajustar a exibição das divs
+function verificarUsuarioLogado() {
+    let usuarioLogado = JSON.parse(sessionStorage.getItem("usuarioLogado"));
+
+    if (usuarioLogado) {
+        // Exibe a div "div-conta" e oculta a "login-button"
+        document.getElementById("div-conta").style.display = "flex";
+        document.getElementById("login-button").style.display = "none";
+
+        // Atualiza as informações do usuário, caso ainda não estejam exibidas
+        document.getElementById("Username").innerText = usuarioLogado.username;
+        document.getElementById("saldo").innerText = usuarioLogado.saldo;
+
+    } else {
+        // Caso não esteja logado, exibe a "login-button" e oculta a "div-conta"
+        document.getElementById("div-conta").style.display = "none";
+        document.getElementById("login-button").style.display = "flex";
+    }
+}
+
+function verificarLoginERedirecionar(pagina) {
+    const usuarioLogado = sessionStorage.getItem("usuarioLogado");
+    
+    if (usuarioLogado) {
+        // Se o usuário está logado, redireciona para a página do jogo
+        window.location.href = pagina;
+    } else {
+        // Se não está logado, redireciona para a página de login
+        window.location.href = "Login.html";
     }
 }
