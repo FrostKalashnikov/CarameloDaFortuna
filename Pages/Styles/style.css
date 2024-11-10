@@ -2,8 +2,8 @@ body{
     text-align: center;
     padding: 0;
     margin: 0;
-    background-color: #131f41;
-
+    background-color: #080d1c;
+    font-family: "Asap", sans-serif;
 }
 
 :root{
@@ -37,7 +37,7 @@ ul li{
     border-radius: 5px;
     width: 98%;
     margin: 1px 0;
-    background-color: #626269;
+    background-color: #949090;
 }
 
 .reels{
@@ -69,18 +69,19 @@ ul li{
     display: inline-block;
     padding: 35px;
     margin: 40px;
-    background-color: beige;
-    box-shadow: 0 0 29 31 #fff,
-    0 0 19px 19px #f00,
-    0 0 33px 17px #f00;
-    border-bottom: solid 4px #627295;
+    background-color: #1c284a;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    font-size: 18px;
+    border-bottom: solid 4px #007aff;
+    color: #fff;
     border-radius: 60px;
 }
 
 .stop-btn:hover{
-    background-color: green;
+    background-color: transparent;
     cursor: pointer;
-    box-shadow: 0 0 29px 31px #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    transition: 0.5s;
 }
 
 .stop-btn:active{
@@ -94,6 +95,7 @@ ul li{
     padding: 20px 40px;
     background-color:  green;
     border: 5px solid greenyellow;
+    color:#fff;
     font-size: 30px;
     margin-bottom: 40px;
     font-weight: bold;
