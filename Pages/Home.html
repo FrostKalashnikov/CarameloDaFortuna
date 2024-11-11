@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caramelo da Fortuna</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
+    
     <link rel="stylesheet" href="styles/Home.css">
+    <link rel="icon" href="Images/CarameloIcon.png">
+
+    <script src="Scripts/Header.js"></script>
     <script src="Scripts/Home.js"></script>
 </head>
+
 <body>
-    <header>
-    <div><img class="logo" src="Images/CarameloIcon.png" alt="Caramelo Logo">
-        <img class="inicio" src="Images/Inicio.jpeg" alt="bem-vindos">
-        <img class="Roleta" src="Images/Roulette.jpeg" alt="Roleta">
-        <img class="Jackpot" src="Images/jack.jpeg" alt="Jackpot">
-        <img class="Blackjack" src="Images/Blackjack.jpeg" alt="Blackjack">
-        <h1> Caramelo da Fortuna </h1>
+    <div id="header-placeholder"></div>
+
+    <div class="game-menu">
+        <div class="game-item" onclick="verificarLoginERedirecionar('Roulette.html')">
+            <img src="Images/RoletaBanner.jpg" alt="Roulette">
+            <span class="game-title">ROULETTE</span>
+        </div>
+        <div class="game-item" onclick="verificarLoginERedirecionar('index.html')">
+            <img src="Images/JackpotBanner.jpg" alt="Jackpot">
+            <span class="game-title">JACKPOT</span>
+        </div>
+        <div class="game-item" onclick="verificarLoginERedirecionar('Blackjack.html')">
+            <img src="Images/BlackjackBanner.jpg" alt="Blackjack">
+            <span class="game-title">BLACKJACK</span>
+        </div>
     </div>
-    <ul>
-        <a href="Login.html"><li>Entrar </li></a>
-        <a href="Cadastro.html"><li>Cadastrar-se </li></a>
-    </ul>
-</header>
-
-<main>
     
-</main>
 
-    
 </body>
+
 </html>
