@@ -268,5 +268,50 @@ window.onload = function () {
 
 
         console.log(actualDeg);
+        verificarResultado(element.className)
     });
+}
+
+const bets = {
+    red: 0,
+    black: 0,
+    green: 0,
+};
+
+function increaseBet(color) {
+    if (bets[color] !== undefined) {
+        bets[color] += 10;
+        document.getElementById(`${color}-amount`).innerText = bets[color];
+    } else {
+        console.error("Cor inválida para aposta:", color);
+    }
+}
+
+function verificarResultado(winningColor) {
+    let saldo = 0
+    if (winningColor === 'red') {
+        saldo += bets.red;
+        saldo -= bets.black;
+        saldo -= bets.green;
+    } else if (winningColor === 'black') {
+        saldo += bets.black;
+        saldo -= bets.red;
+        saldo -= bets.green;
+    } else if (winningColor === 'green') {
+        saldo += bets.green * 5;
+        saldo -= bets.red;
+        saldo -= bets.black;
+    }
+    console.log("saldo: " + saldo)
+    adicionarSaldo(saldo)
+    resetarApostas()
+}
+
+function resetarApostas() {
+    bets.red = 0;
+    bets.black = 0;
+    bets.green = 0;
+    document.getElementById("red-amount").innerText = bets.red;
+    document.getElementById("black-amount").innerText = bets.black;
+    document.getElementById("green-amount").innerText = bets.green;
 }
