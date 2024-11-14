@@ -1,25 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roleta</title>
-    <link rel="stylesheet" href="Styles/Roulette.css">
-    <link rel="icon" href="Images/CarameloIcon.png">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roleta</title>
+  <link rel="stylesheet" href="Styles/Roulette.css">
+  <link rel="icon" href="Images/CarameloIcon.png">
 
-    <script src="Scripts/Header.js"></script>    
-    <script src="Scripts/Roulette.js"></script>    
+  <script src="Scripts/Header.js"></script>
+  <script src="Scripts/Roulette.js"></script>
 </head>
-  <body class="back" >
-    <div id="header-placeholder"></div>
-    <br>
-    <h1 id="result" ></h1>
-    <div id="app">
-      <img class="marker" src="Images/marker.png" />  <span id="result" ></span>
-      <img style="margin-top:5px" class="wheel" src="Images/wheel.png" />
-      <img class="button" src="Images/button.png" />
-    </div>
 
-  </body>
+<body class="back">
+  <div id="header-placeholder"></div>
+  <br>
+  <h1 id="result"></h1>
+  <br>
+  <div id="app">
+    <img class="marker" src="Images/marker.png" /> <span id="result"></span>
+    <img style="margin-top:5px" class="wheel" src="Images/wheel.png" />
+    <img class="button" src="Images/button.png" />
+  </div>
+  <br>
+  <!-- Área de apostas -->
+  <div class="roulette-bet-container">
+    <div class="bet-option" id="bet-red">
+      <span class="bet-color bet-red">Vermelho: </span>
+      <span id="red-amount">0</span>
+      <button onclick="increaseBet('red')">+10</button>
+    </div>
+    <div class="bet-option" id="bet-black">
+      <span class="bet-color bet-black">Preto: </span>
+      <span id="black-amount">0</span>
+      <button onclick="increaseBet('black')">+10</button>
+    </div>
+    <div class="bet-option" id="bet-green">
+      <span class="bet-color bet-green">Verde: </span>
+      <span id="green-amount">0</span>
+      <button onclick="increaseBet('green')">+10</button>
+    </div>
+  </div>
+
+</body>
+
 </html>

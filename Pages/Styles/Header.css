@@ -11,6 +11,10 @@ body {
 header{
     background-color: #131f41;
 }
+a{
+    text-decoration: none;
+    color: #FFF;
+}
 
 .container-logo{
     display: flex;
@@ -44,16 +48,20 @@ header{
     color: #FFF;
 }
 
-.login-button{ 
-    display: none;
+#login-button button{
+    width: 100px;
+    height: 50px;
+    margin: 5px;
+    background-color: #1C284A;
+    border: 2px solid #007aff;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
 }
-.login-button button{
-    border: none;
-    background-color: cornflowerblue;
-    padding: 10px 15px;
-    border-radius: 30px;
-}
-.login-button button a {
+#login-button button a {
     text-decoration: none;
     color: #FFF;
     font-weight: 500;
@@ -70,7 +78,7 @@ header{
     color: white;
 }
 
-.div-conta{
+#div-conta{
     display: flex;
     align-items: center;
 }

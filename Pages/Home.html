@@ -14,13 +14,21 @@
 </head>
 
 <body>
-    <header>
-    <div><img class="logo" src="Images/CarameloIcon.png" alt="Caramelo Logo">
-        <img class="inicio" src="Images/Inicio.jpeg" alt="bem-vindos">
-        <img class="Roleta" src="Images/Roulette.jpeg" alt="Roleta">
-        <img class="Jackpot" src="Images/jack.jpeg" alt="Jackpot">
-        <img class="Blackjack" src="Images/Blackjack.jpeg" alt="Blackjack">
-        <h1> Caramelo da Fortuna </h1>
+    <div id="header-placeholder"></div>
+
+    <div class="game-menu">
+        <div class="game-item" onclick="verificarLoginERedirecionar('Roulette.html')">
+            <img src="Images/RoletaBanner.jpg" alt="Roulette">
+            <span class="game-title">ROULETTE</span>
+        </div>
+        <div class="game-item" onclick="verificarLoginERedirecionar('Jackpot.html')">
+            <img src="Images/JackpotBanner.jpg" alt="Jackpot">
+            <span class="game-title">JACKPOT</span>
+        </div>
+        <div class="game-item" onclick="verificarLoginERedirecionar('Blackjack.html')">
+            <img src="Images/BlackjackBanner.jpg" alt="Blackjack">
+            <span class="game-title">BLACKJACK</span>
+        </div>
     </div>
     
 
