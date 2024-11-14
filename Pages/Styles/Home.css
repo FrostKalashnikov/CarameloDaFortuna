@@ -1,5 +1,5 @@
 *{
-    font-family: sans-serif;
+    font-family: "Asap", sans-serif;
 }
 
 body{
@@ -9,7 +9,6 @@ body{
 h1,h2{
     color: #FFF;
 }
-    font-family: "Asap", sans-serif;
 
 .logo{
     max-width: 100px;
