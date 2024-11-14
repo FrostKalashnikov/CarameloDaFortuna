@@ -1,38 +1,43 @@
 <link rel="stylesheet" href="Styles/Header.css">
 <header>
     <nav class="nav-bar">
-        <div class="container-logo">
-            <div class="logo-imagem">
-                <img class="logo-imagem" src="Images/CarameloIcon.png">
+        <a href="Home.html">
+            <div class="container-logo">
+                <div class="logo-imagem">
+                    <img class="logo-imagem" src="Images/CarameloIcon.png">
+                </div>
+                <div class="logo-texto">
+                    <h2>Caramelo da Fortuna</h2>
+                </div>
             </div>
-            <div class="logo-texto">
-                <h2>Caramelo da Fortuna</h2>
-            </div>
-        </div>
-
+        </a>
         <div class="nav-list">
+            <!-- Lista de Mini games
             <ul>
                 <li class="nav-item"><a href="BlackJack.html" class="nav-link">BlackJack</a></li>
-                <li class="nav-item"><a href="Game2-SlotMachine.html" class="nav-link">JackPot</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link">JackPot</a></li>
                 <li class="nav-item"><a href="Roulette.html" class="nav-link">Roulette</a></li>
-            </ul>
+            </ul> 
+            -->
         </div>
 
-        <div class="login-button">
-            <button><a href="#">Entrar</a></button>
-            <button><a href="#">Cadastrar</a></button>
+        <div id="login-button">
+            <button><a href="Login.html">Entrar</a></button>
+            <button><a href="Cadastro.html">Cadastrar</a></button>
         </div>
-        <div class="div-conta">
+        <div id="div-conta">
             <div class="user-coins">
-            <div class="div-username">
-                <span id="Username">-----</span>
-            </div>
+                <div class="div-username">
+                    <span id="Username">-----</span>
+                </div>
                 <div class="coins">
                     <img src="Images/coins.png" class="coins">
                     <span id="saldo">0</span>
                 </div>
             </div>
-            <img src="Images/character.png" class="user-icon">
+            <a href="Config.html">
+                <img src="Images/character.png" class="user-icon">
+            </a>
         </div>
     </nav>
 </header>
