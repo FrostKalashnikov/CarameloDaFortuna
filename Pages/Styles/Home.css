@@ -1,17 +1,3 @@
-** {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Asap", sans-serif;
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; 
-    background-color: #080d1c;
-}
 /* Container para todos os itens do menu de jogos */
 .game-menu {
     display: flex;
