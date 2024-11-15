@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jackpot</title>
+    <!-- Main Style CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/style.css">
+
+    <script src="Scripts/Header.js"></script>    
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <!-- Slot Machine Section -->
+    <div class="slot">
+        <div id="slot-screen">
+            <ul class="reels">
+                <li class="reel"><img src="Images/Jackpot/1.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/4.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/6.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/9.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/5.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/9.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/7.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/8.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/9.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/10.png" alt=""></li>
+            </ul>
+
+            <ul class="reels">
+                <li class="reel"><img src="Images/Jackpot/1.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/10.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/9.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/8.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/5.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/6.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/9.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/4.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/9.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/10.png" alt=""></li>
+            </ul>
+
+            <ul class="reels">
+                <li class="reel"><img src="Images/Jackpot/1.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/9.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/8.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/9.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/6.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/4.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/9.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/5.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/9.png" alt=""></li>
+                <li class="reel"><img src="Images/Jackpot/10.png" alt=""></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Control Buttons -->
+    <button type="button" class="stop-btn" data-val="0" disabled="true">Stop Reel 1</button>
+    <button type="button" class="stop-btn" data-val="1" disabled="true">Stop Reel 2</button>
+    <button type="button" class="stop-btn" data-val="2" disabled="true">Stop Reel 3</button>
+
+    <div>
+        <button id="start-btn">Start!</button>
+    </div>
+
+    <!-- jQuery and Script Files -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="Scripts/Jackpot.js"></script>
+
+    <script>
+        // Include the slot machine logic and win notification here
+        let stopReelFlag = [false, false, false];
+        let reelCounts = [0, 0, 0];
+        const sec = 100;
+        let slot = {
+            init: function() {
+                stopReelFlag = [false, false, false];
+                reelCounts = [0, 0, 0];
+            },
+
+            start: function() {
+                this.init();
+                start_btn.disabled = true;
+                for (let i = 0; i < 3; i++) {
+                    this.animation(i);
+                    stop_btn[i].disabled = false;
+                }
+            },
+
+            stop: function(i) {
+                stopReelFlag[i] = true;
+                stop_btn[i].disabled = true;
+
+                if (stopReelFlag.every(flag => flag === true)) {
+                    start_btn.disabled = false;
+                    if (this.checkWin()) alert("Congratulations! You won!");
+                }
+            },
+
+            animation: function(index) {
+                if (reelCounts[index] >= 8) reelCounts[index] = 0;
+                
+                const reel = reels[index];
+                reel.style.transition = `top ${sec}ms linear`;
+                reel.style.top = `${slotReelStartHeight + (reelCounts[index] * slotReelItemHeight)}px`;
+
+                setTimeout(() => {
+                    if (!stopReelFlag[index]) {
+                        reelCounts[index]++;
+                        this.animation(index);
+                    }
+                }, sec);
+            },
+
+            checkWin: function() {
+                let reelImages = reels.map((reel, i) => {
+                    return reel.getElementsByTagName("img")[reelCounts[i] % 10].src;
+                });
+                return reelImages.every((img, _, arr) => img === arr[0]);
+            }
+        };
+        document.getElementById("start-btn").onclick = () => slot.start();
+        document.querySelectorAll(".stop-btn").forEach((btn, i) =>
+            btn.onclick = () => slot.stop(i)
+        );
+    </script>
+</body>
+</html>
