@@ -1,13 +1,46 @@
 *{
-    font-family: sans-serif;
+    font-family: "asap", sans-serif;
 }
 
 body{
     background-color:  #080D1C;
 }
 
-h1,h2,h3,h4{
+h1{
+    font-size: 40px;
     color: #FFF;
+}
+
+h2,h3,h4{
+    font-size: 25px;
+    color: #FFF;
+}
+
+.form-content input{
+width: 25%;
+height: 25%;
+background-color: #1C284A;
+border: 2px solid #007aff;
+border-radius: 40px;
+outline: none;
+font-size: 18px;
+color: #fff;
+margin-top: 10px;
+padding: 20px 20px 20px 20px;
+}
+
+.form-content input::placeholder{
+    color: #e4e1e1;
+}
+
+.onclick {
+    padding: 20px;
+    margin: 15px;
+    background-color: #1c284a;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    font-size: 18px;
+    color: #fff;
+    border-radius: 40px;
 }
 
 .logo{
