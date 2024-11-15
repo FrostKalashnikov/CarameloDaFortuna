@@ -1,3 +1,17 @@
+** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Asap", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    background-color: #080d1c;
+}
 /* Container para todos os itens do menu de jogos */
 .game-menu {
     display: flex;
@@ -48,7 +62,6 @@
     font-size: 50px;
     font-weight: bold;
     z-index: 1;
-    font-family: 'Poppins', sans-serif;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8); /* Sombra para o texto */
     pointer-events: none; /* Ignora cliques no texto, para que o link funcione em toda a área */
 
